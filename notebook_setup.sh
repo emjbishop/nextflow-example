@@ -5,6 +5,6 @@ curl -s https://get.nextflow.io | bash
 chmod +x nextflow
 mv nextflow /bin
 
-# Install tcrconverter
-git clone https://github.com/emjbishop/tcr-converter.git
-pip install tcr-converter/
+# Install tcrconvert
+git clone https://github.com/seshadrilab/tcrconvert.git
+pip install tcrconvert/

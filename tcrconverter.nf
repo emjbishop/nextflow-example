@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
-params.input = "/content/tcr-converter/tcrconverter/data/example_10x.csv"
-params.output_dir = "/content"
+params.input = "/content/tcrconvert/tcrconvert/examples/tenx.csv"
+params.output_dir = "/content/"
 
 println "TCR input: $params.input"
 println "TCR output directory: $params.output_dir"
@@ -11,19 +11,13 @@ process convertTCR {
     path input
 
     output:
-    path "example_out.csv"
+    path "out.tsv"
 
     publishDir params.output_dir, mode: 'copy'
 
     script:
     """
-    #!/usr/bin/env python
-    import pandas as pd
-    from tcrconverter import convert
-
-    df = pd.read_csv('$input')
-    converted = convert.convert_tcr(df, fmt_from='tenx', fmt_to='adaptive')
-    converted.to_csv("example_out.csv", index=False)
+    tcrconvert convert -i $input -o $output --frm tenx --to adaptive
     """
 }
 
