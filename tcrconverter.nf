@@ -17,7 +17,7 @@ process convertTCR {
 
     script:
     """
-    tcrconvert convert -i $input -o $output --frm tenx --to adaptive
+    tcrconvert convert -i $input -o /content/out.tsv --frm tenx --to adaptive
     """
 }
 
